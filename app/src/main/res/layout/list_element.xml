@@ -48,6 +48,13 @@
         app:layout_constraintGuide_percent="0.3"
         />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="150dp" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
@@ -62,19 +69,12 @@
         app:srcCompat="@drawable/comedia"
         tools:ignore="ImageContrastCheck" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="150dp" />
-
-
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
+        android:background="#E4D5F6"
         android:gravity="bottom"
         android:textColor="?attr/colorPrimary"
         android:textSize="22sp"
@@ -119,14 +119,15 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
+        android:background="#FFC107"
         android:gravity="center_vertical"
         android:textColor="?attr/colorPrimaryVariant"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:text="Valoración"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toTopOf="@+id/guideline6"/>
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        tools:text="Valoración" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

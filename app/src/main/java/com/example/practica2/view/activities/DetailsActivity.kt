@@ -4,11 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.view.View
 import com.example.practica2.R
 import com.example.practica2.databinding.ActivityDetailsBinding
-import com.example.practica2.databinding.ActivityEditBinding
-import com.example.practica2.databinding.ActivityInsertBinding
 import com.example.practica2.db.DbMovies
 import com.example.practica2.model.Movie
 
@@ -27,20 +26,21 @@ class DetailsActivity : AppCompatActivity() {
 
         val bundle = intent.extras
 
+
         if(bundle!=null){
             id = bundle.getInt("ID",0)
         }
 
         dbMovies = DbMovies(this)
-
         movie = dbMovies.getMovie(id)
 
-        movie?.let{ movie->
+        movie?.let{
             with(binding){
-                tietTitulo.setText(movie.titulo)
-                tietGenero.setText(movie.genero)
-                tietAnio.setText(movie.anio)
-                tietValoracion.setText(movie.valoracion)
+                tietTitulo.setText(it.titulo)
+                tietGenero.setText(it.genero)
+                tietAnio.setText(it.anio.toString())
+                Log.d("ayuda", "Aqui estába el bug :( le faltaba un toString al anio y valoracion");
+                tietValoracion.setText(it.valoracion.toString())
 
                 //desactivar teclado
                 tietTitulo.inputType = InputType.TYPE_NULL

@@ -9,7 +9,7 @@ import com.example.practica2.databinding.ListElementBinding
 import com.example.practica2.model.Movie
 import com.example.practica2.view.activities.MainActivity
 
-class MoviesAdapter(private val context: Context, val movies: ArrayList<Movie>): RecyclerView.Adapter<MoviesAdapter.ViewHolder>(){
+class MoviesAdapter(private val context: Context, private val movies: ArrayList<Movie>): RecyclerView.Adapter<MoviesAdapter.ViewHolder>(){
 
     private val layoutInflater = LayoutInflater.from(context)
 

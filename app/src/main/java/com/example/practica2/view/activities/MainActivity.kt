@@ -3,12 +3,10 @@ package com.example.practica2.view.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.practica2.databinding.ActivityMainBinding
-import com.example.practica2.db.DbHelper
 import com.example.practica2.db.DbMovies
 import com.example.practica2.model.Movie
 import com.example.practica2.view.adapters.MoviesAdapter
@@ -39,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     fun selectedMovie(movie: Movie){
         //Manejamos el click del elemento en el recycler view
         val intent = Intent(this,DetailsActivity::class.java )
+        Log.d("ayuda", movie.id.toString());
         intent.putExtra("ID",movie.id)
         startActivity(intent)
         finish()

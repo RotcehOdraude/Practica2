@@ -66,4 +66,21 @@ class DbMovies(private val context:Context):DbHelper(context) {
 
         return movie
     }
+    fun updateGame(id: Int, titulo: String, genero: String, anio: Int, valoracion: Int): Boolean{
+        var banderaCorrecto = false
+
+        val dbHelper = DbHelper(context)
+        val db = dbHelper.writableDatabase
+
+        try{
+            db.execSQL("UPDATE MOVIES SET titulo = '$titulo', genero = '$genero', anio = '$anio', valoracion = $valoracion WHERE id = $id")
+            banderaCorrecto = true
+        }catch(e: Exception){
+            //Manejo de la excepción
+        }finally {
+            db.close()
+        }
+
+        return banderaCorrecto
+    }
 }
