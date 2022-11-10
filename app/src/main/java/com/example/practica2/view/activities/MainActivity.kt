@@ -38,5 +38,9 @@ class MainActivity : AppCompatActivity() {
 
     fun selectedMovie(movie: Movie){
         //Manejamos el click del elemento en el recycler view
+        val intent = Intent(this,DetailsActivity::class.java )
+        intent.putExtra("ID",movie.id)
+        startActivity(intent)
+        finish()
     }
 }

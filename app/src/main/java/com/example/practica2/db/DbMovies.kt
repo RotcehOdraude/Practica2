@@ -49,4 +49,21 @@ class DbMovies(private val context:Context):DbHelper(context) {
 
         return listMovies
     }
+
+    fun getMovie(id:Int):Movie?{
+        val dbHelper = DbHelper(context)
+        val db = dbHelper.writableDatabase
+
+        var movie: Movie? = null
+
+        var cursorMovies: Cursor? = null
+
+        cursorMovies = db.rawQuery("SELECT * FROM MOVIES WHERE id = $id LIMIT 1",null)
+        if(cursorMovies.moveToFirst()){
+            movie = Movie(cursorMovies.getInt(0),cursorMovies.getString(1),cursorMovies.getString(2),cursorMovies.getInt(3),cursorMovies.getInt(4))
+        }
+        cursorMovies.close()
+
+        return movie
+    }
 }

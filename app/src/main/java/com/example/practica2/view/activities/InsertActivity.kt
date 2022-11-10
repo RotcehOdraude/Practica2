@@ -56,7 +56,7 @@ class InsertActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                     Toast.makeText(this@InsertActivity, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show()
                 }
                 tietValoracion.text.toString().isEmpty() -> {
-                    tietAnio.error = "No puede quedar vacío"
+                    tietValoracion.error = "No puede quedar vacío"
                     Toast.makeText(this@InsertActivity, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show()
                 }else -> {
                     //Realizamos la inserción
