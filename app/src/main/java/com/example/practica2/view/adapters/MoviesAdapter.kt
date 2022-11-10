@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.practica2.R
 import com.example.practica2.databinding.ListElementBinding
 import com.example.practica2.model.Movie
 import com.example.practica2.view.activities.MainActivity
@@ -17,6 +18,7 @@ class MoviesAdapter(private val context: Context, val movies: ArrayList<Movie>):
         val tvGenero = view.tvGenero
         val tvAnio = view.tvAnio
         val tvValoracion = view.tvValoracion
+        val imageView = view.imageView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,6 +32,17 @@ class MoviesAdapter(private val context: Context, val movies: ArrayList<Movie>):
         holder.tvGenero.text = movies[position].genero
         holder.tvAnio.text = movies[position].anio.toString()
         holder.tvValoracion.text = movies[position].valoracion.toString()
+        if (movies[position].genero == "Animacion"){
+            holder.imageView.setImageResource(R.drawable.animacion)
+        }else if (movies[position].genero == "Comedia"){
+            holder.imageView.setImageResource(R.drawable.comedia)
+        }else if (movies[position].genero == "Drama"){
+            holder.imageView.setImageResource(R.drawable.drama)
+        }else if (movies[position].genero == "Romance"){
+            holder.imageView.setImageResource(R.drawable.romance)
+        }else if (movies[position].genero == "Terror"){
+            holder.imageView.setImageResource(R.drawable.terror)
+        }
 
 
         //Para los clicks de cada elemento viewholder
