@@ -28,7 +28,7 @@
         app:startIconDrawable="@drawable/ic_movie">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietTitle"
+            android:id="@+id/tietTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
@@ -40,7 +40,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilGenre"
+        android:id="@+id/tilGenero"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
         app:startIconDrawable="@drawable/ic_genero">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietGenre"
+            android:id="@+id/tietGenero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
@@ -72,36 +72,37 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/tilAnio"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="32dp"
-    android:layout_marginEnd="32dp"
-    android:hint="Año"
-    app:boxBackgroundMode="outline"
-    app:boxCornerRadiusBottomEnd="16dp"
-    app:boxCornerRadiusBottomStart="16dp"
-    app:boxCornerRadiusTopEnd="16dp"
-    app:boxCornerRadiusTopStart="16dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.55"
-    app:startIconDrawable="@drawable/ic_year">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/tietAnio"
+        android:id="@+id/tilAnio"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:imeOptions="actionDone"
-        android:inputType="text"
-        android:maxLines="1">
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Año"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"
+        app:startIconDrawable="@drawable/ic_year">
 
-    </com.google.android.material.textfield.TextInputEditText>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietAnio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="4"
+            android:maxLines="1">
 
-</com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilValoracion"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -127,7 +128,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
-            android:inputType="text"
+            android:inputType="number"
+            android:maxLength="1"
             android:maxLines="1">
 
         </com.google.android.material.textfield.TextInputEditText>
