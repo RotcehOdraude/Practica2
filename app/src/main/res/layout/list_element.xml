@@ -24,21 +24,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="70dp" />
+        app:layout_constraintGuide_begin="60dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="120dp" />
+        app:layout_constraintGuide_begin="90dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="160dp" />
+        app:layout_constraintGuide_begin="120dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -50,10 +50,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="111dp"
-        android:layout_height="111dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:contentDescription="@string/description_default_image"
-        app:layout_constraintBottom_toTopOf="@id/guideline6"
+        app:layout_constraintBottom_toTopOf="@id/guideline8"
         app:layout_constraintEnd_toStartOf="@id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline3"
@@ -65,11 +67,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="175dp" />
+        app:layout_constraintGuide_begin="150dp" />
 
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvTitulo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
@@ -84,7 +86,7 @@
         tools:text="Título" />
 
     <TextView
-        android:id="@+id/tvGenre"
+        android:id="@+id/tvGenero"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
@@ -94,14 +96,15 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo"
         tools:text="Género" />
 
     <TextView
-        android:id="@+id/tvDeveloper"
+        android:id="@+id/tvAnio"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center_horizontal|top"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical"
         android:textColor="?attr/colorPrimaryVariant"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -109,6 +112,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
-        tools:text="Desarrollador" />
+        tools:text="Año" />
+
+    <TextView
+        android:id="@+id/tvValoracion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical"
+        android:textColor="?attr/colorPrimaryVariant"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Valoración"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

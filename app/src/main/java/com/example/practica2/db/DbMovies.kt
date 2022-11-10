@@ -20,7 +20,7 @@ class DbMovies(private val context:Context):DbHelper(context) {
             values.put("anio",anio)
             values.put("valoracion",valoracion)
 
-            db.insert("movies",null, values)
+            id = db.insert("movies",null, values)
         }catch (e:Exception){
             //Manejo de excepciones
         }finally {

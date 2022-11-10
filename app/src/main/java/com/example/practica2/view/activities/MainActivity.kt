@@ -4,30 +4,39 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.practica2.databinding.ActivityMainBinding
 import com.example.practica2.db.DbHelper
+import com.example.practica2.db.DbMovies
+import com.example.practica2.model.Movie
+import com.example.practica2.view.adapters.MoviesAdapter
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var listMovies: ArrayList<Movie>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*val dbHelper = DbHelper(this)
-        val db = dbHelper.writableDatabase
-        if(db!=null){
-            Toast.makeText(this,"La BD fue creada exitosamente", Toast.LENGTH_SHORT).show()
-        }else{
-            Toast.makeText(this,"Error al crear la BD", Toast.LENGTH_SHORT).show()
-        }*/
+        val dbMovies = DbMovies(this)
+        listMovies = dbMovies.getMovies()
+        val moviesAdapter = MoviesAdapter(this,listMovies)
+        binding.rvMovies.layoutManager = LinearLayoutManager(this)
+        binding.rvMovies.adapter = moviesAdapter
     }
 
     fun click(view: View) {
         startActivity(Intent(this,InsertActivity::class.java))
         finish()
+    }
+
+    fun selectedMovie(movie: Movie){
+        //Manejamos el click del elemento en el recycler view
     }
 }
