@@ -39,7 +39,6 @@ class DetailsActivity : AppCompatActivity() {
                 tietTitulo.setText(it.titulo)
                 tietGenero.setText(it.genero)
                 tietAnio.setText(it.anio.toString())
-                Log.d("ayuda", "Aqui estába el bug :( le faltaba un toString al anio y valoracion");
                 tietValoracion.setText(it.valoracion.toString())
 
                 //desactivar teclado

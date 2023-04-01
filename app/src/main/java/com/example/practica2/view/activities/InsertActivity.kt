@@ -82,6 +82,7 @@ class InsertActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+        //movie tiene el string de la opción seleccionada en el spinner
         movie = parent.getItemAtPosition(pos).toString()
     }
 
