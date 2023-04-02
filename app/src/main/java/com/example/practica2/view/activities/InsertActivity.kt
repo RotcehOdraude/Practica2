@@ -68,6 +68,8 @@ class InsertActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                         tietAnio.setText("")
                         tietValoracion.setText("")
                         tietTitulo.requestFocus()
+                        startActivity(Intent(this@InsertActivity, MainActivity::class.java))
+                        finish()
                     }else{
                         Toast.makeText(this@InsertActivity, "Error al guardar el registro", Toast.LENGTH_SHORT).show()
                     }

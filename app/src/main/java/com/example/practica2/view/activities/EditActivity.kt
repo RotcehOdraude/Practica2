@@ -3,11 +3,11 @@ package com.example.practica2.view.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.InputType
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import com.example.practica2.R
 import com.example.practica2.databinding.ActivityEditBinding
 import com.example.practica2.db.DbMovies
@@ -30,8 +30,8 @@ class EditActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         val bundle = intent.extras
 
         print("El id es $id")
-        if(bundle!=null){
-            id = bundle.getInt("ID",0)
+        if (bundle != null) {
+            id = bundle.getInt("ID", 0)
 
         }
 
@@ -53,10 +53,10 @@ class EditActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             //spinner.setSelection(adapter.getPosition("Terror"))
         }
 
-        movie?.let{
-            with(binding){
+        movie?.let {
+            with(binding) {
                 tietTitulo.setText(it.titulo)
-                seleccionarOpcion(spinner,it.genero)
+                seleccionarOpcion(spinner, it.genero)
                 tietAnio.setText(it.anio.toString())
                 tietValoracion.setText(it.valoracion.toString())
 
@@ -70,34 +70,70 @@ class EditActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     fun click(view: View) {
-        /*with(binding){
-            when{
-                tietTitle.text.toString().isEmpty() -> {
-                    tietTitle.error = "No puede quedar vacío"
-                    Toast.makeText(this@EditActivity, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show()
+        with(binding) {
+            when {
+                tietTitulo.text.toString().isEmpty() -> {
+                    tietTitulo.error = "No puede quedar vacío"
+                    Toast.makeText(
+                        this@EditActivity,
+                        "Por favor llene todos los campos",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-                tietGenre.text.toString().isEmpty() -> {
-                    tietGenre.error = "No puede quedar vacío"
-                    Toast.makeText(this@EditActivity, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show()
+                /*spGenero.text.toString().isEmpty() -> {
+                    tietGenero.error = "No puede quedar vacío"
+                    Toast.makeText(this@InsertActivity, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show()
+                }*/
+                tietAnio.text.toString().isEmpty() -> {
+                    tietAnio.error = "No puede quedar vacío"
+                    Toast.makeText(
+                        this@EditActivity,
+                        "Por favor llene todos los campos",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-                tietDeveloper.text.toString().isEmpty() -> {
-                    tietDeveloper.error = "No puede quedar vacío"
-                    Toast.makeText(this@EditActivity, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show()
+                tietValoracion.text.toString().isEmpty() -> {
+                    tietValoracion.error = "No puede quedar vacío"
+                    Toast.makeText(
+                        this@EditActivity,
+                        "Por favor llene todos los campos",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
                 else -> {
-                    if(dbGames.updateGame(id, tietTitle.text.toString(), tietGenre.text.toString(), tietDeveloper.text.toString())){
-                        Toast.makeText(this@EditActivity, "Registro actualizado exitosamente", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@EditActivity, DetailsActivity::class.java)
-                        intent.putExtra("ID", id)
+                    //Realizamos la inserción
+                    val seActualizo = dbMovies.updateGame(
+                        id,
+                        tietTitulo.text.toString(),
+                        movieString,
+                        tietAnio.text.toString().toInt(),
+                        tietValoracion.text.toString().toInt()
+                    )
+                    if (seActualizo == true) {
+                        Toast.makeText(
+                            this@EditActivity,
+                            "Registro actualizado exitosamente",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        tietTitulo.setText("")
+                        //tietGenero.setText("")
+                        tietAnio.setText("")
+                        tietValoracion.setText("")
+                        tietTitulo.requestFocus()
+                        val intent = Intent(this@EditActivity, MainActivity::class.java)
                         startActivity(intent)
                         finish()
-                    }else{
-                        Toast.makeText(this@EditActivity, "Error al actualizar el registro", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(
+                            this@EditActivity,
+                            "Error al actualizar el registro",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
 
                 }
             }
-        }*/
+        }
     }
 
     override fun onBackPressed() {
@@ -107,7 +143,7 @@ class EditActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     fun seleccionarOpcion(spinner: Spinner, cadena: String) {
-        val adapter = spinner.adapter as ArrayAdapter<String>
+        val adapter = spinner.adapter as ArrayAdapter<*>
         for (i in 0 until adapter.count) {
             if (adapter.getItem(i) == cadena) {
                 spinner.setSelection(i)
