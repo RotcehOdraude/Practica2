@@ -60,6 +60,9 @@ class DetailsActivity : AppCompatActivity() {
             }
             R.id.btnDelete -> {
                 //Código para borrar el registro
+                dbMovies.deleteMovie(id)
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }
         }
     }
